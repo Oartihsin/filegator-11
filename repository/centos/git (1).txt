@@ -1,0 +1,110 @@
+C:\Users\nishit.r\Desktop>git clone https://stash.endurance.com/scm/inop/okd4-ansible.git
+Cloning into 'okd4-ansible'...
+remote: Counting objects: 1799, done.
+remote: Compressing objects: 100% (1575/1575), done.
+remote: Total 1799 (delta 986), reused 116 (delta 18) eceiving object
+Receiving objects: 100% (1799/1799), 26.71 MiB | 697.00 KiB/s, done.
+Resolving deltas: 100% (986/986), done.
+
+C:\Users\nishit.r\Desktop>git status
+fatal: not a git repository (or any of the parent directories): .git
+
+C:\Users\nishit.r\Desktop>cd okd4-ansible
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git branch
+* master
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git branch beta1
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git branch beta1_hou1
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git checkout
+Your branch is up to date with 'origin/master'.
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git checkout beta_hou1
+error: pathspec 'beta_hou1' did not match any file(s) known to git
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git checkout beta1_hou1
+Switched to branch 'beta1_hou1'
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git branch -t beta1
+fatal: A branch named 'beta1' already exists.
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git branch -d beta1
+Deleted branch beta1 (was c60fbf5).
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git checkout beta1_hou1
+Already on 'beta1_hou1'
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git status
+On branch beta1_hou1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        inventories/hou1/beta1-hou1.yaml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git commit -m "Adding inventory for okd beta1-hou1"
+On branch beta1_hou1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        inventories/hou1/beta1-hou1.yaml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git add .
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git commit -m "Adding inventory for okd beta1-hou1"
+[beta1_hou1 2e5f6b0] Adding inventory for okd beta1-hou1
+ Committer: Nishit Rao <nishit.r@corp.endurance.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 216 insertions(+)
+ create mode 100644 inventories/hou1/beta1-hou1.yaml
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git push origin beta1_hou1
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.96 KiB | 500.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create pull request for beta1_hou1:
+remote:   https://stash.endurance.com/projects/INOP/repos/okd4-ansible/pull-requests?create&sourceBranch=refs/heads/beta1_hou1
+remote:
+To https://stash.endurance.com/scm/inop/okd4-ansible.git
+ * [new branch]      beta1_hou1 -> beta1_hou1
+
+C:\Users\nishit.r\Desktop\okd4-ansible>git branch
+* beta1_hou1
+  master
+
+
+
+How to delete the last commit 
+git rebase -i HEAD~4
+delete the commit you want to delete and :wq
+git push origin branch-name --force
